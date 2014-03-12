@@ -16,8 +16,14 @@ addon.port.on('new-history-item', function(details) {
   let lastEle;
   for (let i = document.body.children.length - 1; i >=0; i--) {
     let ele = document.body.children[i];
-    if ((ele.getAttribute('data-index')*1) > details.index) {
+    let eleI = (ele.getAttribute('data-index')*1);
+    if (eleI > details.index) {
       break;
+    }
+    else if (eleI == details.index) {
+      ele.firstChild.setAttribute('src', details.thumbnail);
+      ele.firstChild.setAttribute('title', details.title);
+      return;
     }
     lastEle = ele;
   }
@@ -27,6 +33,11 @@ addon.port.on('new-history-item', function(details) {
   else {
     document.body.appendChild(div);
   }
+});
+
+addon.port.on('reset', function() {
+  document.body.innerHTML = '';
+  addon.port.emit('load');
 });
 
 window.onload = function() {
