@@ -2,6 +2,9 @@
 addon.port.on('new-history-item', function(details) {
   let div = document.createElement('div');
   div.setAttribute('data-index', details.index);
+  if (details.current) {
+    div.classList.add('current');
+  }
   //div.innerHTML = details.title;
   //div.innerHTML = details.thumbnail;
   let img = document.createElement('img');
