@@ -1,0 +1,9 @@
+{
+  "name": "timeline-sidebar-jetpack",
+  "fullName": "Timeline Sidebar",
+  "id": "timeline-sidebar-jetpack@erikvold.com",
+  "description": "Displays a timeline of the current active tab's history",
+  "author": "Erik Vold",
+  "license": "MPL 2.0",
+  "version": "0.1"
+}
